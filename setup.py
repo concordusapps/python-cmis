@@ -20,9 +20,8 @@ setup(
     ],
     author='Concordus Applications',
     author_email='support@concordusapps.com',
-    url='http://github.com/concordusapps/alchemist',
+    url='http://github.com/concordusapps/python-cmis',
     packages=find_packages('.'),
-    entry_points={'pytest11': ['alchemist = alchemist.plugin']},
     dependency_links=[
         'git+git://github.com/concordusapps/python-cmislib.git@topics/py3k'
         '#egg=cmislib-dev',
