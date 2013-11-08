@@ -24,7 +24,7 @@ setup(
     packages=find_packages('.'),
     entry_points={'pytest11': ['alchemist = alchemist.plugin']},
     dependency_links=[
-        'git+git://github.com/concordusapps/python-cmislib.git@master'
+        'git+git://github.com/concordusapps/python-cmislib.git@topics/py3k'
         '#egg=cmislib-dev',
     ],
     install_requires=[
