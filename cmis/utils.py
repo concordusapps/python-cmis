@@ -1,6 +1,7 @@
 from cmislib.exceptions import UpdateConflictException, ObjectNotFoundException
 from os import path
 from urllib.parse import quote
+from uuid import uuid4
 
 
 def get_or_create_folder(repo, folder):
@@ -34,16 +35,14 @@ def persist(cmis_folder, fobj, name=None):
     name = quote(name, safe='')
 
     # Iterate until we can successfully upload the file.
-    iteration = 0
     while True:
-        filename = '%s_%d%s' % (name, iteration, extension)
+        filename = '%s_%s%s' % (name, uuid4().hex, extension)
 
         try:
             return cmis_folder.createDocument(
                 filename, contentFile=fobj)
 
         except UpdateConflictException:
-            iteration += 1
             fobj.seek(0)
 
 
